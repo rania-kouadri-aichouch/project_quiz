@@ -28,18 +28,7 @@
  
 
     <style>
-        .navbar-custom .nav-item .nav-link {
-            color: #0b0b0b;
-        }
 
-        .navbar-custom .nav-item .nav-link:hover {
-            color: #00a7bd;
-        }
-
-        .n {
-            padding: 140px;
-            margin: 100px;
-        }
     </style>
 
 </head>
@@ -72,7 +61,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="/contact/">Contact</a>
+                    <a class="nav-link page-scroll" href="/quiz/quiz/">Quiz</a>
                 </li>
 
                 {% if user.is_authenticated %}
@@ -82,10 +71,18 @@
                             class="fas fa-user"></i></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                        <a class="dropdown-item" href=""><span class="item-text">Quizz</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
                         
+                        {% if user.is_superuser %}
+                           
+                            
+                            <a class="dropdown-item" href="/users/"><span class="item-text">Users</span></a>
+                            <div class="dropdown-items-divide-hr"></div>
 
+                            <a class="dropdown-item" href="/quiz/question/"><span class="item-text">Add questions</span></a>
+                            <div class="dropdown-items-divide-hr"></div>
+
+
+                        {% endif %}
                         <a class="dropdown-item" href="/accounts/logout/"><span class="item-text">Logout</span></a>
 
                     </div>
@@ -140,6 +137,31 @@
 
             </div>
 
+            
+            
+                {% block add %}
+            
+            
+                {% endblock add %}
+            
+            
+
+            {% block quiz %}
+            
+            
+            {% endblock quiz %}
+
+            {% block result %}
+            
+            
+            {% endblock result %}
+
+           
+
+            {% block edit %}
+            
+            
+            {% endblock edit %}
 
 
         </div>

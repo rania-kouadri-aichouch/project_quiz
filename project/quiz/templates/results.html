@@ -1,0 +1,42 @@
+{% extends 'landing.html' %}
+
+{% block result %}
+
+<h2 style="margin-top:100px ; margin-bottom: 20px;">thank you for taking the quiz</h2>
+
+<div class="card">
+
+   
+   <h3>Quiz details</h3>
+<!--<img class="result-image" src="https://thumbs.dreamstime.com/b/remote-learning-concept-students-completing-online-questionnaire-laptop-computer-colored-vector-illustration-remote-196104429.jpg">-->
+<h5 class="">Score: {{score}}</h5>
+<p class="">Correct answers: {{correct}}</p>
+<p class="">Incorrect answers: {{wrong}}</p>
+<p class="">Total questions: {{total}}</p>
+
+<div style="display:flex ; flex-direction:row;">
+   <div style="margin:10px ;">
+      {% for q in qst %}
+      
+      <p>{{q}}</p>
+      
+      {% endfor %}
+   </div>
+   <div>
+      {% for a in ans %}
+   
+        <p> your answer is : {{a}}</p>
+   
+      {% endfor %}
+   </div>
+</div>
+
+
+
+
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'landing.html' %}
+{% load static %}
+{% block quiz %}
+
+<div class="quiz">
+
+    
+
+
+  <div class="card">
+    <h1> Quiz questions</h1>
+    <form method='post' action=''>
+        {% csrf_token %}
+        
+        {% for q in questions%}
+        
+    <div class="question-section"  >
+        <div class="form-group">
+            <h4><label for="question">{{q.question}}</label></h4>
+        </div>
+        <div class="form-check">
+
+            <label class="radio-container" style="width: 150px">{{q.op1}}
+                <input type="radio" value="{{q.op1}}" name="{{q.question}}" />
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="radio-container" style="width: 150px">{{q.op2}}
+                <input type="radio" value="{{q.op2}}" name="{{q.question}}" />
+                <span class="checkmark"></span>
+            </label>
+
+
+            <label class="radio-container" style="width: 150px">{{q.op3}}
+                <input type="radio" value="{{q.op3}}" name="{{q.question}}" />
+                <span class="checkmark"></span>
+            </label>
+
+            <br>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="delete-edit">
+
+            <button type="submit" class="btn btn-danger"> <a href="/quiz/delete/{{q.id}}">Delete</a> </button>
+            <button class="btn btn-default"> <a href="/quiz/edit/{{q.id}}">Edit</a> </button>
+
+        </div>
+        
+        {% endif %}
+    </div>
+        {% endfor %}
+        
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+    </form>
+
+</div>
+</div>
+{% endblock %}
