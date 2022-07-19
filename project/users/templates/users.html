@@ -1,0 +1,38 @@
+{% extends 'landing.html' %}
+
+{% block users %}
+{% load static %}
+<div class="table-page">
+    <h1> Users results</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>username</th>
+                <th>Score</th>
+                <th>Correct answers</th>
+                <th>wrong answers</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% csrf_token %}
+            {% for r in results%}
+            <tr>
+            <td>{{r.user.username}}</td>
+            <td>{{r.score}}</td>
+            <td>{{r.correct}}</td>
+            <td>{{r.wrong}}</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    
+
+    
+        
+        </table>
+
+
+</div>
+{% endblock %}

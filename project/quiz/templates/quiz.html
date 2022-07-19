@@ -38,7 +38,7 @@
 
             <br>
         </div>
-        {% if user.is_authenticated %}
+        {% if user.is_superuser %}
         <div class="delete-edit">
 
             <button type="submit" class="btn btn-danger"> <a href="/quiz/delete/{{q.id}}">Delete</a> </button>

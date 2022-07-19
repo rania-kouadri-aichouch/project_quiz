@@ -28,6 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('quiz/', include('quiz.urls')),
+    path('users/', include('users.urls')),
     path('', views.home, name="home"),
     path('about/', views.about, name="about"),
     path('landing/', views.landing, name="landing"),
