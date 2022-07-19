@@ -1,0 +1,61 @@
+
+{% extends 'landing.html' %}
+{% load static %}
+
+
+{% block login %}
+<form method="post">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="col-xl-10 col-lg-11 login-container">
+                <div class="row">
+                    <div class="col-lg-7 img-box">
+                        <img src="{% static 'images/test.png' %}" alt="">
+                        
+                    </div>
+                    <div class="col-lg-5 no-padding">
+                        <div class="login-box">
+                            <h5>Welcome !</h5>
+                            <h5 style="color: darkred">{{message}}</h5>
+
+                            {% csrf_token %}
+
+
+                            <div class="login-row row no-margin">
+                                <label> <i class="fas fa-user"></i> Username </label>
+                                <input name="username" type="text" class="form-control form-control-sm" required>
+                            </div>
+
+                            <div class="login-row row no-margin">
+                                <label><i class="fas fa-unlock-alt"></i>Password </label>
+                                <input name="password" type="password" class="form-control form-control-sm" required>
+                            </div>
+                            <div class="row" style="padding-top: 17px; padding-left: 0px">
+                                <div class="col-6">
+                                    <p> <input type="checkbox"> Remember Me</p>
+                                </div>
+                                <div class="col-6">
+                                    <p><a href="/accounts/password-reset/">Forget Password?</a></p>
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-top: 17px; padding-left: 0px">
+                                <div class="login-row btnroo row no-margin">
+                                    <div class="col-6"> <button type="submit" class="btn btn-primary btn-sm"
+                                            style="background-color: #00bfd8">Login</button></div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="login-row donroo row no-margin">
+                                <p>You don't have an account ? <a href="/accounts/register/">Register</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock login %}
