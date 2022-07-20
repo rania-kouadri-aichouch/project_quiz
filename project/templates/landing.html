@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title -->
     <title>Quizz app</title>
@@ -25,15 +26,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/fontawsom-all.min.css' %}">
 
- 
+
 
     <style>
-        .table-page{
-					padding: 20px;
-					margin: 10px;
-					margin-top: 100px;
-				}
-
+ 
     </style>
 
 </head>
@@ -76,15 +72,15 @@
                             class="fas fa-user"></i></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                        
-                        {% if user.is_superuser %}
-                           
-                            
-                            <a class="dropdown-item" href="/users/"><span class="item-text">Users</span></a>
-                            <div class="dropdown-items-divide-hr"></div>
 
-                            <a class="dropdown-item" href="/quiz/question/"><span class="item-text">Add questions</span></a>
-                            <div class="dropdown-items-divide-hr"></div>
+                        {% if user.is_superuser %}
+
+
+                        <a class="dropdown-item" href="/users/"><span class="item-text">Users</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+
+                        <a class="dropdown-item" href="/quiz/question/"><span class="item-text">Add questions</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
 
 
                         {% endif %}
@@ -102,82 +98,86 @@
         </div>
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+    {% block home %}
+
+    {% endblock home %}
+
+    {% block edit %}
+
+
+    {% endblock edit %}
+
+
+    {% block users %}
+
+
+    {% endblock users %}
+
+
+    {% block add %}
+
+
+    {% endblock add %}
+
+    {% block quiz %}
+
+
+    {% endblock quiz %}
+
+    <div class="page-content">
 
 
 
-    <div class="slider-1">
-        <div class="container">
+        {% block reg %}
 
-            <div class="row">
-                {% block reg %}
-
-                {% endblock reg %}
-            </div>
-            <div class="row">
-
-                {% block login %}
+        {% endblock reg %}
 
 
 
-
-                {% endblock login %}
-
-            </div>
-
-            <div class="row">
-
-                {% block home %}
+        {% block login %}
 
 
-                {% endblock home %}
-
-            </div>
-
-            <div class="row">
-
-                {% block about %}
+        {% endblock login %}
 
 
-                {% endblock about %}
-
-            </div>
-
-            
-            
-                {% block add %}
-            
-            
-                {% endblock add %}
-            
-            
-
-            {% block quiz %}
-            
-            
-            {% endblock quiz %}
-
-            {% block result %}
-            
-            
-            {% endblock result %}
-
-           
-
-            {% block edit %}
-            
-            
-            {% endblock edit %}
 
 
-            {% block users %}
-            
-            
-            {% endblock users %}
 
 
-        </div>
+
+
+
+
+        {% block about %}
+
+
+        {% endblock about %}
+
+
+
+
+
+
+
+
+
+
+        {% block result %}
+
+
+        {% endblock result %}
+
+
+        {% block note %}
+
+        {% endblock note %}
+
+
+
+
+
+
     </div>
-
 
     <!-- Footer -->
     <div class="footer">

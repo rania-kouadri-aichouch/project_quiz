@@ -25,7 +25,11 @@ class Result(models.Model):
     correct = models.IntegerField(blank=False,null=True)
     wrong = models.IntegerField(blank=False,null=True)
     total = models.IntegerField(blank=False,null=True)
+    note = models.IntegerField(blank=False,null=True)
+    status = models.CharField(max_length=200 ,blank=False,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.user.username
+
+

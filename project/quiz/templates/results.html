@@ -1,42 +1,71 @@
 {% extends 'landing.html' %}
 
 {% block result %}
+<div class="container">
+   <div class="row">
 
-<h2 style="margin-top:100px ; margin-bottom: 20px;">thank you for taking the quiz</h2>
 
-<div class="card">
+<div class="card" style="margin-top:100px">
 
-   
-   <h3>Quiz details</h3>
-<!--<img class="result-image" src="https://thumbs.dreamstime.com/b/remote-learning-concept-students-completing-online-questionnaire-laptop-computer-colored-vector-illustration-remote-196104429.jpg">-->
-<h5 class="">Score: {{score}}</h5>
-<p class="">Correct answers: {{correct}}</p>
-<p class="">Incorrect answers: {{wrong}}</p>
-<p class="">Total questions: {{total}}</p>
+   <h3 style=" margin-bottom: 20px;">thank you for taking the quiz</h3>
 
-<div style="display:flex ; flex-direction:row;">
-   <div style="margin:10px ;">
-      {% for q in qst %}
-      
-      <p>{{q}}</p>
-      
-      {% endfor %}
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-6 col-md-6 col-lg-6">
+            <img class="result-image"
+               src="https://thumbs.dreamstime.com/b/remote-learning-concept-students-completing-online-questionnaire-laptop-computer-colored-vector-illustration-remote-196104429.jpg">
+               <h3>Quiz details</h3>
+               
+               <h5 class="">Score: {{score}}</h5>
+               <p class="">Correct answers: {{correct}}</p>
+               <p class="">Incorrect answers: {{wrong}}</p>
+               <p class="">Total questions: {{total}}</p>
+         </div>
+
+         <div class="col-sm-6 col-md-6 col-lg-6">
+            
+            
+            <div style="display:flex ; flex-direction:row;">
+               <div style="margin:25px ;">
+                  
+
+                  {% for q ,a ,r in mylist %}
+                  <div style="margin:25px ;">
+                  <h5>{{q}}</5>
+                     {%if a == r %}
+                        <h6>  your answer : <h5 style="color: green;"> {{a}} </h5></h6>
+
+                     {% else %}
+
+                     <h6> your answer :
+                     <h5 style="color: red;"> {{a}} </h5>
+                     </h6>
+
+                     <p> right answer is: {{r}}</p>
+
+                     {% endif %}
+                  
+                  
+                  </div>
+
+                  {% endfor %}
+
+               </div>
+            </div>
+         </div>
+
+      </div>
    </div>
-   <div>
-      {% for a in ans %}
    
-        <p> your answer is : {{a}}</p>
-   
-      {% endfor %}
-   </div>
+
+
+
+
+
+
+
 </div>
-
-
-
-
-
-
-
+</div>
 </div>
 
 {% endblock %}

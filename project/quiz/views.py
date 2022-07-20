@@ -29,12 +29,14 @@ def quiz(request):
         total=0
         all_questions =[]
         all_ans=[]
+        all_right_ans=[]
         
         
         for q in questions:
             total+=1
             all_questions.append(q.question)
-            all_ans.append(q.answer)
+            all_right_ans.append(q.answer)
+            all_ans.append(request.POST.get(q.question))
 
             if q.answer ==  request.POST.get(q.question):
                 score+=10
@@ -43,16 +45,16 @@ def quiz(request):
                 wrong+=1
 
         qst=all_questions
-        ans=all_ans        
+        ans=all_ans  
+        mylist = zip (qst , ans ,all_right_ans)      
         context = {
             'score':score,
-            'qst':qst,
-            'ans':ans,
+            'mylist':mylist,
             'correct':correct,
             'wrong':wrong,
             'total':total
         }
-        result = Result(user=request.user, score=score,correct=correct, wrong=wrong, total=total)
+        result = Result(user=request.user, score=score,correct=correct, wrong=wrong, total=total,status="pending",note=0)
         result.save()
         return render(request,'results.html',context)
     else:
@@ -81,3 +83,16 @@ def destroy(request, id):
     question = Question.objects.get(id=id)  
     question.delete()  
     return redirect("/quiz/quiz/")  
+
+
+def noteEdit(request, id):  
+    grade = Result.objects.get(id=id)   
+    return render(request,'note.html', {'grade': grade}) 
+
+def noteUpdate(request, id):  
+    grade = Result.objects.get(id=id)  
+    form = Resultform(request.POST ,instance = grade)  
+    if form.is_valid():  
+        form.save()  
+        return redirect("/users/")  
+    return render(request, 'note.html', {'grade': grade})  

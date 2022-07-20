@@ -11,6 +11,8 @@
                 <th>Score</th>
                 <th>Correct answers</th>
                 <th>wrong answers</th>
+                <th>status</th>
+                <th>note</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +23,10 @@
             <td>{{r.score}}</td>
             <td>{{r.correct}}</td>
             <td>{{r.wrong}}</td>
+            <td>{{r.status}}</td>
+            <td>{{r.note}}</td>
+            
+            <td><button class="btn btn-default"> <a href="/quiz/edit/note/{{r.id}}">give a mark</a> </button></td>
             </tr>
 
             {% endfor %}

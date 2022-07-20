@@ -10,6 +10,8 @@ urlpatterns = [
     path('edit/<int:id>', views.edit),  #edit question
     path('update/<int:id>', views.update), #update question
     path('delete/<int:id>', views.destroy),   #delete question
+    path('edit/note/<int:id>', views.noteEdit),  #edit question
+    path('update/note/<int:id>', views.noteUpdate), #update question
     
     
 ]

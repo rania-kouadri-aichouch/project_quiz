@@ -2,7 +2,7 @@
 
 {% block edit %}
 
-<div class="card add">
+<div class="card add" style="margin:20px;">
 <form method="POST" class="post-form" action="/quiz/update/{{question.id}}">
     {% csrf_token %}
     <div class="container">
@@ -17,14 +17,14 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">question:</label>
             <div class="col-sm-10">
-                <input type="text" name="question" id="id_ename" required  value="{{ question.question }}" />
+                <input type="text" name="question"  required  value="{{ question.question }}" />
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">op1:</label>
             <div class="col-sm-10">
-                <input type="text" name="op1" id="id_ename" required  value="{{ question.op1 }}" />
+                <input type="text" name="op1"  required  value="{{ question.op1 }}" />
             </div>
         </div>
 
@@ -32,28 +32,28 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">op2</label>
             <div class="col-sm-10">
-                <input type="text" name="op2" id="id_ename" required  value="{{ question.op2}}" />
+                <input type="text" name="op2"  required  value="{{ question.op2}}" />
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">op3</label>
             <div class="col-sm-10">
-                <input type="text" name="op3" id="id_ename" required  value="{{ question.op3}}" />
+                <input type="text" name="op3"  required  value="{{ question.op3}}" />
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">answer</label>
             <div class="col-sm-10">
-                <input type="text" name="answer" id="id_ename" required  value="{{ question.answer}}" />
+                <input type="text" name="answer"  required  value="{{ question.answer}}" />
             </div>
         </div>
         
         <div class="form-group row">
             <label class="col-sm-1 col-form-label"></label>
             <div class="col-sm-4">
-                <button type="submit" class="btn btn-primary">Update</button>
+               <center><button type="submit" class="btn btn-primary">Update</button></center> 
             </div>
         </div>
     </div>

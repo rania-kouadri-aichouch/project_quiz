@@ -1,0 +1,45 @@
+{% extends 'landing.html' %}
+
+{% block note %}
+
+<div class="card add">
+    <form method="POST" class="post-form" action="/quiz/update/note/{{grade.id}}">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-8">
+                    <h5>Update Details</5>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">note:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="note"  required value="{{ grade.note }}" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">status:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="status"  required value="{{ grade.status }}" />
+                </div>
+            </div>
+
+            
+
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label"></label>
+                <div class="col-sm-8">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+</body>
+
+{% endblock %}

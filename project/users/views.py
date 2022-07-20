@@ -5,8 +5,10 @@ from quiz.models import Result
 def users(request):    
     if request.user.is_superuser:
         results=Result.objects.all()
+        
         context = {
-            'results':results
+            'results':results,
+            
         }
         
         return render(request,'users.html',context)
